@@ -14,8 +14,16 @@ export class InventoryService {
 
 
     handleProductInventory(inventoryDto: InventoryDto) {
-        console.log(inventoryDto.amount);
-        this.repo.save(inventoryDto);
+        let inventory: InventoryEntity = {
+            QuantityAvailable: inventoryDto.quantityAvailable,
+            MinimumStockLevel: inventoryDto.minimumStockLevel,
+            MaximumStockLevel: inventoryDto.maximumStockLevel,
+            ReorderPoint: inventoryDto.reorderPoint,
+            isActive: inventoryDto.isActive
+          };
+        
+        this.repo.save(inventory);
+
         //Send email
       }
     
