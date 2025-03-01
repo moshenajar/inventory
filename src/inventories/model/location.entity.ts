@@ -1,30 +1,18 @@
 import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity({ name: 'inventory'})
+@Entity({ name: 'location'})
 export class InventoryEntity {
     @PrimaryGeneratedColumn('uuid')
-    InventoryID?: string;
-    
-    @Column()
-    productId: number;
+    LocationID?: string;
 
-    @Column()
-    ban: number;
+    @Column({type:'varchar', length: 256})
+    warehouseID: string; //1:N
 
-    @Column()
-    QuantityAvailable: number;
+    @Column({type:'varchar', length: 256})
+    LocationName: string;
 
-    @Column()
-    MinimumStockLevel: number;
-
-    @Column()
-    MaximumStockLevel: number;
-
-    @Column()
-    ReorderPoint: number;
-
-    @Column({ default: true})
-    isActive: boolean;
+    @Column({type:'varchar', length: 256})
+    LocationAddress: string;
 
     @CreateDateColumn({type: 'timestamptz', default: () => 'CURRENT_TIMESTAMP'})
     createDateTime?: Date;

@@ -15,6 +15,8 @@ export class InventoryService {
 
     handleProductInventory(inventoryDto: InventoryDto) {
         let inventory: InventoryEntity = {
+            productId: inventoryDto.productId,
+            ban: inventoryDto.ban,
             QuantityAvailable: inventoryDto.quantityAvailable,
             MinimumStockLevel: inventoryDto.minimumStockLevel,
             MaximumStockLevel: inventoryDto.maximumStockLevel,
